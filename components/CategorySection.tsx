@@ -19,7 +19,7 @@ const CategorySection = async () => {
             <div className="flex gap-20 mt-24">
                 {category.map((cat: string, index: number) => {
                     return (
-                        <Link href={"/category/" + cat} passHref>
+                        <Link key={index} href={"/category/" + cat} passHref>
                             <ImageCard imageUrl={images[index]}>{cat}</ImageCard>
                         </Link>
                     );

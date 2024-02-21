@@ -7,7 +7,7 @@ function HeroSection() {
             <div className="border-2 border-black flex flex-col justify-center items-start flex-1 gap-10 bg-[#ff90e8] p-24">
                 <h1 className="text-6xl">Discover the best at lowest price</h1>
                 <p className="font-semibold text-xl">
-                    Discover the power of selling online with Acme. Start monetizing your skills and products effortlessly. Whether you're a budding creator or an established entrepreneur, turn your ideas into dollars. Explore, create, and profit – it's that straightforward with our ecommerce
+                    Discover the power of selling online with Acme. Start monetizing your skills and products effortlessly. Whether you&apos;re a budding creator or an established entrepreneur, turn your ideas into dollars. Explore, create, and profit – it&apos;s that straightforward with our ecommerce
                     solution
                 </p>
                 <button className="px-10 rounded py-3 bg-black text-white font-semibold text-xl  hover:bg-gray-800 hover:shadow-yellow active:bg-[#00E1EF]">Discover Products</button>

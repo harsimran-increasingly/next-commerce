@@ -1,28 +1,23 @@
 "use client";
 import { fetchData } from "@/lib/apiService";
-import { useEffect, useState } from "react";
-export default function Page({ params }: { params: { slug: string } }) {
-    const [product, setProduct] = useState<any>({});
+interface Product {
+    id: number,
+    image: string;
+    title: string;
+    price: number;
+    description: string;
+    rating: Rating;
+}
 
-    useEffect(() => {
-        const fetchProduct = async () => {
-            try {
-                const results = await fetchData("products/" + params.slug, { method: "GET" });
-                setProduct(results);
-            } catch (error) {
-                console.error("Error Fetching Data ", error);
-            }
-        };
-        fetchProduct();
-    }, []);
+interface Rating {
+    count: number,
+    rate: number
+}
+const Page = async ({ params }: { params: { slug: string } }) => {
+    const product: Product = await fetchData("products/" + params.slug, { method: "GET" });
 
-    if (Object.keys(product).length === 0) {
-        return <div className="container m-auto py-10">Loading..</div>;
-    }
-
-    console.log(product);
     return (
-        <div>
+        <div key={product.id}>
             <div className="flex  m-auto border-2 border-black  ">
                 <div className="flex-1 p-20 flex">
                     <img src={product.image} className="w-96 m-auto" />
@@ -50,7 +45,7 @@ export default function Page({ params }: { params: { slug: string } }) {
                         <h2 className="text-3xl font-bold mb-8">Return Policy</h2>
 
                         <div className="prose space-y-3">
-                            <p className="font-bold">At Acme, we want you to be completely satisfied with your purchase. If you're not entirely happy with your order, we're here to help.</p>
+                            <p className="font-bold">At Acme, we want you to be completely satisfied with your purchase. If you&apos;re not entirely happy with your order, we&apos;re here to help.</p>
                             <p>
                                 <strong>Returns</strong>: You have 30 calendar days to return an item from the date you received it. To be eligible for a return, your item must be unused and in the same condition that you received it. Your item must be in the original packaging.
                             </p>
@@ -58,7 +53,7 @@ export default function Page({ params }: { params: { slug: string } }) {
                                 <strong>Refunds</strong>: Once we receive your item, we will inspect it and notify you that we have received your returned item. We will immediately notify you of the status of your refund after inspecting the item.
                             </p>
                             <p>
-                                <strong>Exchanges</strong>: If you need to exchange an item, please contact our customer service. We'll guide you through the process.
+                                <strong>Exchanges</strong>: If you need to exchange an item, please contact our customer service. We&apos;ll guide you through the process.
                             </p>
                             <p>
                                 <strong>Shipping</strong>: You will be responsible for paying for your own shipping costs for returning your item. Shipping costs are non­refundable.
@@ -69,4 +64,6 @@ export default function Page({ params }: { params: { slug: string } }) {
             </div>
         </div>
     );
-}
+};
+
+export default Page;

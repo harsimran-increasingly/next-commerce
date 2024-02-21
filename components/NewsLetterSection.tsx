@@ -4,7 +4,7 @@ function NewsLetterSection() {
     return (
         <div className="flex justify-center  p-20 min-h-96 flex-col bg-teal-600">
             <h4 className="text-2xl">
-                Acme has completely transformed the way I shop online. The seamless user experience, extensive product range, and lightning-fast delivery are unparalleled. Acme's commitment to quality and customer satisfaction have made me a loyal customer. I couldn't be happier with my purchases –
+                Acme has completely transformed the way I shop online. The seamless user experience, extensive product range, and lightning-fast delivery are unparalleled. Acme&apos;s commitment to quality and customer satisfaction have made me a loyal customer. I couldn&apos;t be happier with my purchases –
                 truly a game-changer in the world of e-commerce!
             </h4>
             <p className="text-left mt-6">- John Jacob - Digital Market Expert</p>
