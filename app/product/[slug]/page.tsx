@@ -1,5 +1,6 @@
 "use client";
 import { fetchData } from "@/lib/apiService";
+import { useCartStore } from "@/store/zustand";
 interface Product {
     id: number,
     image: string;
@@ -14,6 +15,7 @@ interface Rating {
     rate: number
 }
 const Page = async ({ params }: { params: { slug: string } }) => {
+    const {addToCart } = useCartStore();
     const product: Product = await fetchData("products/" + params.slug, { method: "GET" });
 
     return (
@@ -32,6 +34,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
                     <p className="text-md text-light mt-5  text-gray-900 ">{product.description}</p>
                     <button
                         role="button"
+                        onClick={() => addToCart(product)}
                         aria-label="Click to perform an action"
                         className="flex  mt-10 cursor-pointer items-center rounded-md border-2 border-black bg-[#f1f333] px-10 py-3 font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none"
                     >
